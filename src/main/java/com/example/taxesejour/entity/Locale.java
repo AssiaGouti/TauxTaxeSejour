@@ -1,7 +1,7 @@
 package com.example.taxesejour.entity;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.Entity;e
 import jakarta.persistence.Id;
 
 @Entity
