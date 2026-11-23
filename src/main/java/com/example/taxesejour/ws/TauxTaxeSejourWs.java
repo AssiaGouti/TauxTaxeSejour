@@ -5,7 +5,6 @@ import com.example.taxesejour.service.TauxTaxeSejourService;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -20,25 +19,39 @@ public class TauxTaxeSejourWs {
     }
 
 
+
+    @GetMapping("/reference/{reference}")
+    public TauxTaxeSejour findByReference(
+            @PathVariable String reference) {
+
+        return service.findByReference(reference);
+    }
+
+
     @PostMapping
-    public TauxTaxeSejour save(@RequestBody TauxTaxeSejour taux) {
+    public int save(@RequestBody TauxTaxeSejour taux) {
+
         return service.save(taux);
     }
 
 
     @GetMapping
     public List<TauxTaxeSejour> findAll() {
+
         return service.findAll();
     }
 
 
+
     @GetMapping("/{id}")
-    public ResponseEntity<TauxTaxeSejour> findById(@PathVariable Long id) {
+    public ResponseEntity<TauxTaxeSejour> findById(
+            @PathVariable Long id) {
 
         return service.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
 
 
     @PutMapping("/{id}")
@@ -56,14 +69,15 @@ public class TauxTaxeSejourWs {
     }
 
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-        if (!service.findById(id).isPresent()) {
+        int resultat = service.delete(id);
+
+        if (resultat == -1) {
             return ResponseEntity.notFound().build();
         }
-
-        service.delete(id);
 
         return ResponseEntity.noContent().build();
     }
