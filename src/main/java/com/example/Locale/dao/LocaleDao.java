@@ -1,7 +1,7 @@
-package com.example.taxe_sejour.dao;
+package com.example.Locale.dao;
 
 
-import com.example.taxe_sejour.entity.Locale;
+import com.example.Locale.entity.Locale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

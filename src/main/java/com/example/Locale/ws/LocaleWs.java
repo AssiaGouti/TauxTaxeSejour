@@ -1,14 +1,14 @@
-package com.example.taxe_sejour.ws;
+package com.example.Locale.ws;
 
 
-import com.example.taxe_sejour.entity.Locale;
-import com.example.taxe_sejour.service.LocaleService;
+import com.example.Locale.entity.Locale;
+import com.example.Locale.service.LocaleService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/locale")
+@RequestMapping("/api/locale")
 @CrossOrigin(origins = "*")
 
 public class LocaleWs {
@@ -19,14 +19,14 @@ public class LocaleWs {
         this.localeService = localeService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public int save(@RequestBody Locale locale) {
         return localeService.save(locale);
     }
 
     @GetMapping("/ref/{ref}")
-    public Locale findByref(@PathVariable String ref) {
-        return localeService.findByref(ref);
+    public Locale findByRef(@PathVariable String ref) {
+        return localeService.findByRef(ref);
     }
 
     @DeleteMapping("/ref/{ref}")
@@ -34,7 +34,7 @@ public class LocaleWs {
         return localeService.deleteByRef(ref);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Locale> findAll() {
         return localeService.findAll();
     }

@@ -1,4 +1,4 @@
-package com.example.taxe_sejour;
+package com.example.Locale;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

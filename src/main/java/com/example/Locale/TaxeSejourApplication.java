@@ -1,4 +1,4 @@
-package com.example.taxe_sejour;
+package com.example.Locale;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
